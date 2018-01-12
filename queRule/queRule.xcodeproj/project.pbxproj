@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		4F16DA8F2008F07A0000DB72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F16DA8E2008F07A0000DB72 /* AppDelegate.swift */; };
-		4F16DA912008F07A0000DB72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F16DA902008F07A0000DB72 /* ViewController.swift */; };
 		4F16DA942008F07A0000DB72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F16DA922008F07A0000DB72 /* Main.storyboard */; };
 		4F16DA972008F07A0000DB72 /* queRule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F16DA952008F07A0000DB72 /* queRule.xcdatamodeld */; };
 		4F16DA992008F07A0000DB72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F16DA982008F07A0000DB72 /* Assets.xcassets */; };
 		4F16DA9C2008F07A0000DB72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F16DA9A2008F07A0000DB72 /* LaunchScreen.storyboard */; };
+		4F16DAA42008FE620000DB72 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F16DAA32008FE620000DB72 /* GamesViewController.swift */; };
+		4F16DAA62008FE790000DB72 /* AddGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F16DAA52008FE790000DB72 /* AddGameViewController.swift */; };
+		4F16DAA82008FECC0000DB72 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F16DAA72008FECC0000DB72 /* GameCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4F16DA8B2008F07A0000DB72 /* queRule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = queRule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F16DA8E2008F07A0000DB72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F16DA902008F07A0000DB72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4F16DA932008F07A0000DB72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F16DA962008F07A0000DB72 /* queRule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = queRule.xcdatamodel; sourceTree = "<group>"; };
 		4F16DA982008F07A0000DB72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F16DA9B2008F07A0000DB72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F16DA9D2008F07A0000DB72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F16DAA32008FE620000DB72 /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
+		4F16DAA52008FE790000DB72 /* AddGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGameViewController.swift; sourceTree = "<group>"; };
+		4F16DAA72008FECC0000DB72 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				4F16DA8E2008F07A0000DB72 /* AppDelegate.swift */,
-				4F16DA902008F07A0000DB72 /* ViewController.swift */,
+				4F16DAA32008FE620000DB72 /* GamesViewController.swift */,
+				4F16DAA52008FE790000DB72 /* AddGameViewController.swift */,
+				4F16DAA72008FECC0000DB72 /* GameCell.swift */,
 				4F16DA922008F07A0000DB72 /* Main.storyboard */,
 				4F16DA982008F07A0000DB72 /* Assets.xcassets */,
 				4F16DA9A2008F07A0000DB72 /* LaunchScreen.storyboard */,
@@ -139,8 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F16DA912008F07A0000DB72 /* ViewController.swift in Sources */,
+				4F16DAA82008FECC0000DB72 /* GameCell.swift in Sources */,
+				4F16DAA62008FE790000DB72 /* AddGameViewController.swift in Sources */,
 				4F16DA972008F07A0000DB72 /* queRule.xcdatamodeld in Sources */,
+				4F16DAA42008FE620000DB72 /* GamesViewController.swift in Sources */,
 				4F16DA8F2008F07A0000DB72 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

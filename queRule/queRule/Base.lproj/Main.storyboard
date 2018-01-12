@@ -13,7 +13,7 @@
         <!--Mis juegos-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="queRule" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GamesViewController" customModule="queRule" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,6 +25,9 @@
                                     <segment title="Todos"/>
                                 </segments>
                                 <color key="tintColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="filterChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="cVQ-xI-oLH"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xuE-v9-4bs">
                                 <rect key="frame" x="10" y="107" width="355" height="550"/>
@@ -36,7 +39,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wbg-SE-O1S">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GameCell" id="wbg-SE-O1S" customClass="GameCell" customModule="queRule" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -97,6 +100,11 @@
                                         </constraints>
                                         <size key="customSize" width="355" height="120"/>
                                         <connections>
+                                            <outlet property="imageView" destination="TgP-Vx-U2x" id="Naf-mI-mUv"/>
+                                            <outlet property="lblBorrowed" destination="1og-8n-So6" id="aO8-cE-pxY"/>
+                                            <outlet property="lblBorrowedDate" destination="H6e-8P-xee" id="Etm-Vg-p6N"/>
+                                            <outlet property="lblBorrowedTo" destination="dh2-oD-9Me" id="yyF-Mc-Oo8"/>
+                                            <outlet property="lblTitle" destination="Wcx-Ox-T5h" id="oEn-te-4eP"/>
                                             <segue destination="Xgd-rx-yQR" kind="show" identifier="editGameSegue" id="Shh-dr-eqh"/>
                                         </connections>
                                     </collectionViewCell>
@@ -119,6 +127,8 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="rzh-W9-91r"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="xuE-v9-4bs" id="UeX-ps-c5H"/>
+                        <outlet property="filterControl" destination="04l-zr-l6W" id="QkK-Rd-EaK"/>
                         <segue destination="3dY-yS-11p" kind="presentation" identifier="addGameSegue" id="tGr-JE-5xz"/>
                     </connections>
                 </viewController>
@@ -149,7 +159,7 @@
         <!--Añadir videojuego-->
         <scene sceneID="Bim-bM-T7y">
             <objects>
-                <viewController title="Añadir videojuego" id="Xgd-rx-yQR" sceneMemberID="viewController">
+                <viewController title="Añadir videojuego" id="Xgd-rx-yQR" customClass="AddGameViewController" customModule="queRule" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Owj-xO-iRX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,7 +177,7 @@
                                 <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jDX-Ze-UWB">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jDX-Ze-UWB">
                                 <rect key="frame" x="172" y="427" width="51" height="31"/>
                                 <color key="onTintColor" red="0.8784313725490196" green="0.21176470588235294" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                             </switch>
@@ -256,6 +266,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="jDX-Ze-UWB" firstAttribute="leading" secondItem="D5W-uR-xLh" secondAttribute="trailing" constant="8" id="2J9-3T-Vg6"/>
                             <constraint firstItem="YKP-oq-f3r" firstAttribute="centerX" secondItem="Owj-xO-iRX" secondAttribute="centerX" id="8Df-Yv-xyU"/>
                             <constraint firstItem="Fve-Xd-v12" firstAttribute="trailing" secondItem="P8c-0W-juN" secondAttribute="trailing" constant="28" id="JGP-2q-kXC"/>
                             <constraint firstItem="Fve-Xd-v12" firstAttribute="bottom" secondItem="YKP-oq-f3r" secondAttribute="bottom" constant="20" id="JUm-Ug-Egi"/>
@@ -302,6 +313,6 @@
         <image name="img_game_cover" width="320" height="320"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lco-Le-4Az"/>
+        <segue reference="Shh-dr-eqh"/>
     </inferredMetricsTieBreakers>
 </document>
