@@ -105,7 +105,6 @@
                                             <outlet property="lblBorrowedDate" destination="H6e-8P-xee" id="Etm-Vg-p6N"/>
                                             <outlet property="lblBorrowedTo" destination="dh2-oD-9Me" id="yyF-Mc-Oo8"/>
                                             <outlet property="lblTitle" destination="Wcx-Ox-T5h" id="oEn-te-4eP"/>
-                                            <segue destination="Xgd-rx-yQR" kind="show" identifier="editGameSegue" id="Shh-dr-eqh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -130,6 +129,7 @@
                         <outlet property="collectionView" destination="xuE-v9-4bs" id="UeX-ps-c5H"/>
                         <outlet property="filterControl" destination="04l-zr-l6W" id="QkK-Rd-EaK"/>
                         <segue destination="3dY-yS-11p" kind="presentation" identifier="addGameSegue" id="tGr-JE-5xz"/>
+                        <segue destination="Xgd-rx-yQR" kind="show" identifier="editGameSegue" id="hC3-sD-A7U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -143,6 +143,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xUf-Rb-cPv">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -180,6 +181,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jDX-Ze-UWB">
                                 <rect key="frame" x="172" y="427" width="51" height="31"/>
                                 <color key="onTintColor" red="0.8784313725490196" green="0.21176470588235294" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="switchValueChanged:" destination="Xgd-rx-yQR" eventType="valueChanged" id="WDJ-DK-XGF"/>
+                                </connections>
                             </switch>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P8c-0W-juN">
                                 <rect key="frame" x="27" y="466" width="320" height="110"/>
@@ -262,6 +266,9 @@
                                     <constraint firstAttribute="height" constant="34" id="vdV-xE-Oli"/>
                                 </constraints>
                                 <state key="normal" title="Eliminar videojuego"/>
+                                <connections>
+                                    <action selector="deletePressed" destination="Xgd-rx-yQR" eventType="touchUpInside" id="ja1-K4-p76"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
@@ -281,6 +288,14 @@
                         <viewLayoutGuide key="safeArea" id="Fve-Xd-v12"/>
                     </view>
                     <navigationItem key="navigationItem" id="QmD-u0-6ac"/>
+                    <connections>
+                        <outlet property="borrowedSwitch" destination="jDX-Ze-UWB" id="wtU-ri-4nv"/>
+                        <outlet property="btnDelete" destination="YKP-oq-f3r" id="tJT-uB-FIO"/>
+                        <outlet property="gameImageView" destination="Qmu-OR-Je5" id="m0q-8A-bW7"/>
+                        <outlet property="txtBorrowedDate" destination="WDa-J3-9mb" id="cxX-9a-eLj"/>
+                        <outlet property="txtBorrowedTo" destination="q34-ao-yMo" id="caG-G6-gcw"/>
+                        <outlet property="txtTitle" destination="zJn-LU-sMP" id="g4f-da-oQz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ab-VW-iOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -294,6 +309,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jx1-96-GV4">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -313,6 +329,6 @@
         <image name="img_game_cover" width="320" height="320"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Shh-dr-eqh"/>
+        <segue reference="hC3-sD-A7U"/>
     </inferredMetricsTieBreakers>
 </document>

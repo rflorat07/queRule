@@ -65,9 +65,9 @@ class GamesViewController: UIViewController, UICollectionViewDelegate, UICollect
         cell.lblBorrowed.attributedText = self.formatColours(string: "PRESTADO: \(game.borrowed ? "SI" : "NO")", color: highlightColor)
         
         if let borrowedTo = game.borrowedTo {
-            cell.lblBorrowed.attributedText = self.formatColours(string: "A: \(borrowedTo)", color: highlightColor)
+            cell.lblBorrowedTo.attributedText = self.formatColours(string: "A: \(borrowedTo)", color: highlightColor)
         } else {
-            cell.lblBorrowed.attributedText = self.formatColours(string: "A: --", color: highlightColor)
+            cell.lblBorrowedTo.attributedText = self.formatColours(string: "A: --", color: highlightColor)
         }
         
         if let borrowedDate = game.borrowedDate {
@@ -107,6 +107,30 @@ class GamesViewController: UIViewController, UICollectionViewDelegate, UICollect
         if (offsetY < -120)  {
             performSegue(withIdentifier: "addGameSegue", sender: self)
         }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+        if segue.identifier == "addGameSegue" {
+            let addNavVC = segue.destination as! UINavigationController
+            let addVC = addNavVC.topViewController as! AddGameViewController
+            
+            addVC.managerObjectContext = self.managedObjectContext
+            addVC.delegate = self
+        }
+        
+        if segue.identifier == "editGameSegue" {
+            let addGameVC = segue.destination as! AddGameViewController
+            addGameVC.managerObjectContext = self.managedObjectContext
+            
+            let selectedIndex = collectionView.indexPathsForSelectedItems?.first?.row
+            let game = lstGames[selectedIndex!]
+            
+            addGameVC.game = game
+            addGameVC.delegate = self
+        }
+        
     }
     
     func formatColours(string: String, color: UIColor) -> NSMutableAttributedString {
@@ -150,6 +174,13 @@ class GamesViewController: UIViewController, UICollectionViewDelegate, UICollect
         
     }
     
+    
+}
+
+extension GamesViewController : AddGameViewControllerDelegate {
+    func didAddGame() {
+        self.collectionView.reloadData()
+    }
     
 }
 

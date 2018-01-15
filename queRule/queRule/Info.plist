@@ -45,5 +45,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Para hacer fotos de tus videojuegos con la cámara</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Para seleccionar fotos de tu carrete para  los videojuegos</string>
 </dict>
 </plist>
